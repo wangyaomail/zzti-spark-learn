@@ -10,15 +10,6 @@
     <packaging>jar</packaging>
     <name>spark-learn</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <java.version>1.8</java.version>
-        <spark.version>2.3.3</spark.version>
-        <scala.version>2.11</scala.version>
-    </properties>
-
     <repositories>
         <repository>
             <id>Project Repository</id>
@@ -45,6 +36,16 @@
         <url>https://soft.zut.edu.cn/</url>
     </organization>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <hadoop.version>2.7.3</hadoop.version>
+        <spark.version>2.3.3</spark.version>
+        <scala.version>2.11</scala.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.spark</groupId>
@@ -61,6 +62,11 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-mllib_${scala.version}</artifactId>
             <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>${hadoop.version}</version>
         </dependency>
     </dependencies>
     <build>

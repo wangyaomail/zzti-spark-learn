@@ -5,6 +5,8 @@
 .cache-main
 .pydevproject
 
+__pycache__
+
 *.iml
 *.log
 *.tmp
@@ -12,5 +14,4 @@
 /target/
 /tmp
 /bin
-/input/*
 /output/*
