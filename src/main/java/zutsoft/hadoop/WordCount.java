@@ -25,7 +25,7 @@ public class WordCount {
         job.setReducerClass(WCReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
-        FileInputFormat.addInputPath(job, new Path(localProjectPath + "/input"));
+        FileInputFormat.addInputPath(job, new Path(localProjectPath + "/input/test.data"));
         FileOutputFormat.setOutputPath(job, new Path(localProjectPath + "/output/wordcount"));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
