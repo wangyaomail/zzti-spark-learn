@@ -16,3 +16,4 @@ __pycache__
 /bin
 /input/*
 /output/*
+/src/main/python/tf

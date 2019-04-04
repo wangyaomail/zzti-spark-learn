@@ -2,6 +2,8 @@ import sys
 import os
 from os.path import *
 
+def pl():
+    return dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 
 class SparkEnv:
 
