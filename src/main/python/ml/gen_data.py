@@ -1,4 +1,4 @@
-import random
+import random as rd
 import numpy as np
 import math
 import sys
@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 sys.path.append("..")
 import loadenv as le
 
-def gen_beibao():
-    # 生成背包问题模拟数据
+def gen_beibao():  # 生成背包问题模拟数据
     city_num = 10
     max_way_for_one_city = 3
 
@@ -24,5 +23,12 @@ def gen_beibao():
     plt.scatter(way_zip[:, 0], way_zip[:, 1])
     plt.show()
 
+def gen_q_learning():  # 生成寻找出去的房间的模拟数据
+    room_num = 10
+    r_cho = [-1, 0, 100]
+    r_all = np.random.choice(r_cho, size=(room_num, room_num), p=[0.6, 0.37, 0.03])
+    np.savetxt(le.pl() + '/input/room.data', r_all)
+    print(r_all)
+
 if __name__ == "__main__":
-    gen_beibao();
+    gen_q_learning();
