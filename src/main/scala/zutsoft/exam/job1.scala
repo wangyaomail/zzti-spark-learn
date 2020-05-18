@@ -1,13 +1,17 @@
-package zutsoft.start
+package zutsoft.exam
 // 统计男生和女生的总人数
 object job1 {
   def main(args: Array[String]) {
-    val source = scala.io.Source.fromFile("students.data", "UTF-8").getLines().toArray
-    source.map(_.trim().split("\t")).
-    filter(_.length == 8)
+  val source = scala.io.Source
+                  .fromFile("input/students.data", "UTF-8")
+                  .getLines().toArray
+  source
+    .map(_.trim().split("\t"))
+    .filter(_.length == 8)
     .map(x => (x(3), 1))
     .groupBy(x => x._1)
-    .mapValues(_.map(_._2).sum).foreach(println(_))
+    .mapValues(_.map(_._2).sum)
+    .foreach(print(_))
   }
 }
 

@@ -1,20 +1,25 @@
-package zutsoft.start
+package zutsoft.spark.scala_4
 // 统计男生和女生的总人数
+import java.io._
+import org.apache.spark._
+import org.apache.spark.rdd.RDD
+import org.apache.log4j.{ Level, Logger }
+
 object job1 {
+  Logger.getLogger("org").setLevel(Level.ERROR)
   def main(args: Array[String]) {
-    val source = scala.io.Source.fromFile("students.data", "UTF-8").getLines().toArray
-    source.map(_.trim().split("\t")).
-    filter(_.length == 8)
-    .map(x => (x(3), 1))
+    var localProjectPath = new File("").getAbsolutePath();
+    System.setProperty("hadoop.home.dir", localProjectPath + "/hadoopdir");
+    val sc = new SparkContext("local", "Average", System.getenv("SPARK_HOME"))
+    val input = sc.textFile(localProjectPath + "/input/students.data").map(line => line.trim().split("\t")).filter(_.length == 8)
+    input.map(x => (x(3), 1))
     .groupBy(x => x._1)
-    .mapValues(_.map(_._2).sum).foreach(println(_))
+    .mapValues(_.map(_._2).sum)
+    //.foreach(println)
   }
 }
 
 /** 提供参考的模拟students.data:
-姓名\t学号\t班级\t性别\t出生年月\t血型\t手机号\t家庭住址\t身高
-张祥德\tRB17101\tRB171\t男\t1997-02-10\tAB\t11122223333\t河南省郑州市1号\t172
-
 张祥德	RB17101	RB171	男	1997-02-10	11122223333	河南省郑州市1号	88
 冯成刚	RB17102	RB171	女	1996-10-01	18837110115	河南省洛阳市2号	86
 卢伟兴	RB17103	RB171	男	1998-08-02	19999228822	河南省开封市3号	95

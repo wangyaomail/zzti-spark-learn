@@ -17,3 +17,6 @@ __pycache__
 /input/*
 /output/*
 /src/main/python/tf
+/objFile
+/mydata_saveAsTestFile
+/spark-warehouse
