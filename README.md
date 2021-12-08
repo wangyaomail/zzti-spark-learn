@@ -13,20 +13,16 @@
 
 一部分课堂联系的案例
 
-##c2-exp-spark
+## c2-exp-spark
 
 一部分关于rdd算子和streaming算子的案例放在这里
 
-##c3-py-spark
+## c3-py-spark
 
 关于pyspark的一部分例子放在这里
 
 ## before-2021
-### 内容
 - 在windows下运行hadoop和spark的算法demo
 - 包含java、python、scala三种语言的demo
-
-### 工程引用
-- **[1] 课程教材和部分程序逻辑出自https://github.com/databricks/learning-spark**
-- **[2] win下hadoop环境配置出自https://github.com/SweetInk/hadoop-common-bin**
+- 课程教材和部分程序逻辑出自https://github.com/databricks/learning-spark**
 
